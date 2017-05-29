@@ -1,0 +1,19 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Reactive Angular Form with Validations without Instance Variable</h2>
+  <form class="ui form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="ui error message" *ngIf="!myForm.controls['name'].valid">Form is invalid</div>
+    <div class="field" [class.error]="!myForm.controls['name'].valid && myForm.controls['name'].touched">
+      <label for="reacValInput">Contact Name</label>
+      <input type="text" id="reacValInput" name="reactiveValName" placeholder="Input here..." [formControl]="myForm.controls['name']">
+      <div class="ui error message" *ngIf="!myForm.controls['name'].valid">Name is invalid</div>
+      <div class="ui error message" *ngIf="myForm.controls['name'].hasError('required')">Name is required</div>
+    </div>
+    <div class="field" [class.error]="!myForm.controls['ssn'].valid && myForm.controls['ssn'].touched">
+      <label for="reacValInputSSN">SSN</label>
+      <input type="text" id="reacValInputSSN" name="reactiveValSSN" placeholder="Input here..." [formControl]="myForm.controls['ssn']">
+      <div class="ui error message" *ngIf="!myForm.controls['ssn'].valid">SSN is invalid</div>
+      <div class="ui error message" *ngIf="myForm.controls['ssn'].hasError('required')">SSN is required</div>
+    </div>
+    <button class="ui button">Submit</button>
+  </form>
+</div>

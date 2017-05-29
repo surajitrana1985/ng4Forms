@@ -1,0 +1,13 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Reactive Angular Form with Validations</h2>
+  <form class="ui form" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="ui error message" *ngIf="!sku.valid">Form is invalid</div>
+    <div class="field" [class.error]="!sku.valid && sku.touched">
+      <label for="reacValInput">Input field</label>
+      <input type="text" id="reacValInput" name="reactiveValName" placeholder="Input here..." [formControl]="myForm.controls['sku']">
+      <div class="ui error message" *ngIf="!sku.valid">SKU is invalid</div>
+      <div class="ui error message" *ngIf="sku.hasError('required')">SKU is required</div>
+    </div>
+    <button class="ui button">Submit</button>
+  </form>
+</div>

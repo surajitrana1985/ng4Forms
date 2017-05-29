@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SkuFormComponent } from './sku-form/sku-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ValidationFormComponent } from './validation-form/validation-form.component';
+import { ValidationFormXComponent } from './validation-form-x/validation-form-x.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SkuFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ValidationFormComponent,
+    ValidationFormXComponent
   ],
   imports: [
     BrowserModule,
