@@ -13,7 +13,7 @@ export class ValidationFormXComponent implements OnInit {
   constructor(fb:FormBuilder) { 
     this.myForm = fb.group({
       'name': ['', Validators.required],
-      'ssn': ['', Validators.required]
+      'ssn': ['', Validators.compose([Validators.required, this.ssnValidator])]
     });
   }
 
@@ -24,8 +24,10 @@ export class ValidationFormXComponent implements OnInit {
     console.log("User has input the value as ", form);
   }
 
-  SSNValidator (form:FormControl): StringMap<String, boolean> {
-    return null;
+  ssnValidator (form:FormControl): {[s:string]:boolean} {
+    if(!form.value.match(/^123/)) {
+      return {'invalidSSN': true};
+    }
   }
 
 }

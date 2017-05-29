@@ -13,6 +13,7 @@
       <input type="text" id="reacValInputSSN" name="reactiveValSSN" placeholder="Input here..." [formControl]="myForm.controls['ssn']">
       <div class="ui error message" *ngIf="!myForm.controls['ssn'].valid">SSN is invalid</div>
       <div class="ui error message" *ngIf="myForm.controls['ssn'].hasError('required')">SSN is required</div>
+      <div class="ui error message" *ngIf="myForm.controls['ssn'].hasError('invalidSSN')">SSN must begin with 123</div>
     </div>
     <button class="ui button">Submit</button>
   </form>
