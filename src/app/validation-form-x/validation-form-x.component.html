@@ -15,6 +15,12 @@
       <div class="ui error message" *ngIf="myForm.controls['ssn'].hasError('required')">SSN is required</div>
       <div class="ui error message" *ngIf="myForm.controls['ssn'].hasError('invalidSSN')">SSN must begin with 123</div>
     </div>
+    <div class="field">
+      <label for="departmentName">Department Name</label>
+      <input type="text" id="departmentName" placeholder="Department Name" [formControl]="myForm.get('deptName')" [(ngModel)]="deptName">
+      <div class="ui error message" *ngIf="!myForm.controls['deptName'].valid">Department is required</div>
+      <div class="ui info message" *ngIf="deptName !== undefined">Department name is : {{deptName}}</div>
+    </div>
     <button class="ui button">Submit</button>
   </form>
 </div>

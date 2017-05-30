@@ -9,11 +9,13 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from
 export class ValidationFormXComponent implements OnInit {
 
   myForm: FormGroup;
+  deptName:string;
 
   constructor(fb:FormBuilder) { 
     this.myForm = fb.group({
       'name': ['', Validators.required],
-      'ssn': ['', Validators.compose([Validators.required, this.ssnValidator])]
+      'ssn': ['', Validators.compose([Validators.required, this.ssnValidator])],
+      'deptName': ['', Validators.required]
     });
   }
 
